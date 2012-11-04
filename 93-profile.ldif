@@ -1,0 +1,43 @@
+# This extends the schema to include a custom profile. (roaming .bash_profile)
+# --Brent
+#
+dn: cn=schema
+attributeTypes: ( 1.3.6.1.4.1.33612.10.10.1.1 NAME 'bashProfile'
+    DESC 'Shell code sourced /etc/profile.d script; Base64-encoded.'
+    EQUALITY octetStringMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.40
+    )
+attributeTypes: ( 1.3.6.1.4.1.33612.10.11.1.1 NAME 'bashProfile2'
+    DESC 'Shell code sourced /etc/profile.d script; Base64-encoded.'
+    EQUALITY octetStringMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.40
+    )
+attributeTypes: ( 1.3.6.1.4.1.33612.10.12.1.1 NAME 'bashProfile3'
+    DESC 'Shell code sourced /etc/profile.d script; Base64-encoded.'
+    EQUALITY octetStringMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.40
+    )
+attributeTypes: ( 1.3.6.1.4.1.33612.10.20.1.1 NAME 'screenrc'
+    DESC 'Shell code sourced /etc/profile.d script; Base64-encoded.'
+    EQUALITY octetStringMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.40
+    )
+attributeTypes: ( 1.3.6.1.4.1.33612.10.30.1.1 NAME 'vimrc'
+    DESC 'Shell code sourced /etc/profile.d script; Base64-encoded.'
+    EQUALITY octetStringMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.40
+    )
+attributeTypes: ( 1.3.6.1.4.1.33612.10.40.1.1 NAME 'tmuxrc'
+    DESC 'Shell code sourced /etc/profile.d script; Base64-encoded.'
+    EQUALITY octetStringMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.40
+    )
+attributeTypes: ( 1.3.6.1.4.1.33612.10.50.1.1 NAME 'bashLogout'
+    DESC 'Shell code sourced /etc/profile.d script; Base64-encoded.'
+    EQUALITY octetStringMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.40
+    )
+objectClasses: ( 1.3.6.1.4.1.33612.10.1.1.1 NAME 'ldapProfile' SUP top AUXILIARY
+    DESC 'Auxiliary object to be used with inetorgperson for storing user profile'
+    MAY ( description $ bashProfile $ bashProfile2 $ bashProfile3 $ screenrc $ vimrc $ tmuxrc $ bashLogout $ owner )  
+    ) 

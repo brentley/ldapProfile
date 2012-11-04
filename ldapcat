@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'net/ldap'
+abort if ARGV.empty?
+
+ldap = Net::LDAP.new :host => 'ldap.example.com',
+     :port => 389,
+     :auth => {
+           :method => :simple,
+           :username => "",
+           :password => ""
+     }
+
+treebase = "ou=People, dc=example, dc=com"
+filter   = Net::LDAP::Filter.eq("uid", ENV['USER'])
+response = ldap.search(:base => treebase, :filter => filter).first
+
+if response
+  puts response.send ARGV.first.to_sym rescue abort
+end
