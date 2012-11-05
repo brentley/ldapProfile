@@ -69,8 +69,6 @@ remove your dot file from the ldap server.
 
 There is currently a 3060 byte limitation per dot file.
 
-See https://tumblr.atlassian.net/wiki/pages/viewpage.action?pageId=14614627
-for the latest full documentation on this feature.
 EoF
 
 fi
