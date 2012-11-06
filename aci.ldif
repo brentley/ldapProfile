@@ -1,0 +1,7 @@
+dn: ou=People,dc=example,dc=org
+changetype: modify
+replace: aci
+aci: (targetattr = "bashProfile || screenrc || vimrc || tmuxrc || bashLogout |
+ | userPassword || telephoneNumber || facsimileTelephoneNumber") (version 3.0;
+ acl "Allow self entry modification";allow (write)(userdn = "ldap:///self");)
+-
