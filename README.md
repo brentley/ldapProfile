@@ -4,6 +4,8 @@ This is a collection of files I currently use to provide "roaming" bash profiles
 
 I've also included my schema extension, and a few other scripts I use to extend the schema for our existing users, add the user's custom bash_profile, and remove the custom bash_profile if necessary.
 
+Everything is formatted to be compatible with Fedora Directory Server, Red Hat Enterprise Directory Server, or Sun One.  It is likely easily adapted to openldap.
+
 Description
 ===========
 I've created a schema that supports storing user specific custom dot files in LDAP.  Currently with this schema, you can store your custom bash profile, screenrc, vimrc, tmuxrc and bash logout.  These ldap entries are user-serviceable, so you can edit them as much as you like, without involving the LDAP administrator.  
@@ -88,6 +90,10 @@ ldap-delattribute
 
 This user self-servicable script removes the contents of the specified attribute.
 
+aci.ldif
+--------
+
+This aci allows for user self service
 
 
 
