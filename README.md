@@ -8,7 +8,7 @@ Everything is formatted to be compatible with Fedora Directory Server, Red Hat E
 
 Description
 ===========
-I've created a schema that supports storing user specific custom dot files in LDAP.  Currently with this schema, you can store your custom bash profile, screenrc, vimrc, tmuxrc and bash logout.  These ldap entries are user-serviceable, so they can be edited as much as desired, without involving the LDAP administrator.  
+I've created a schema and toolset that supports storing user specific custom dot files in LDAP.  Currently with this schema, you can store your custom bash profile, screenrc, vimrc, tmuxrc and bash logout.  These ldap entries are user-serviceable, so they can be edited as much as desired, without involving the LDAP administrator.  
 
 Usage
 -----
