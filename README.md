@@ -8,31 +8,29 @@ Description
 ===========
 I've created a schema that supports storing user specific custom dot files in LDAP.  Currently with this schema, you can store your custom bash profile, screenrc, vimrc, tmuxrc and bash logout.  These ldap entries are user-serviceable, so you can edit them as much as you like, without involving the LDAP administrator.  
 
-<code>
 Usage
 -----
 Two scripts provide the "upload" and "delete" function for the supported attributes.  To upload:
-$ ldap-uploadattribute 
-Usage: /usr/local/bin/ldap-uploadattribute ATTRIBUTE_NAME FILE
-Supported Attributes:
- bashProfile
- bashProfile2
- bashProfile3
- screenrc
- vimrc
- tmuxrc
- bashLogout
-$ ldap-delattribute 
-Usage: /usr/local/bin/ldap-delattribute ATTRIBUTE_NAME
-Supported Attributes:
- bashProfile
- bashProfile2
- bashProfile3
- screenrc
- vimrc
- tmuxrc
- bashLogout
-</code>
+    $ ldap-uploadattribute 
+    Usage: /usr/local/bin/ldap-uploadattribute ATTRIBUTE_NAME FILE
+    Supported Attributes:
+     bashProfile
+     bashProfile2
+     bashProfile3
+     screenrc
+     vimrc
+     tmuxrc
+     bashLogout
+    $ ldap-delattribute 
+    Usage: /usr/local/bin/ldap-delattribute ATTRIBUTE_NAME
+    Supported Attributes:
+     bashProfile
+     bashProfile2
+     bashProfile3
+     screenrc
+     vimrc
+     tmuxrc
+     bashLogout
 
 Editing
 -------
