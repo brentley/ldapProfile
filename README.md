@@ -1,6 +1,6 @@
 # Retrieving Your Bash Profile from LDAP
 
-This is a collection of files I currently use to provide "roaming" dot profiles.  When a user connects, the /etc/profile.d/ldapprofile.sh script calls getldapprofile to retrieve the contents of bashProfile from dn: uid=$USER,ou=example,ou=org.
+This is a collection of files I currently use to provide "roaming" dot profiles.  When a user connects, the /etc/profile.d/ldapprofile.sh script calls ldapcat to retrieve the contents of bashProfile from dn: uid=$USER,ou=example,ou=org.
 
 I've also included my schema extension, and a few other scripts I use to extend the schema for our existing users, add the user's custom bash_profile, and remove the custom bash_profile if necessary.
 
@@ -84,7 +84,7 @@ This ruby script retrievs the attribute contents you ask for from ldap matching 
 
 ldapprofile.sh
 --------------
-This script adds the output of getldapprofile to the existing environment.  Deploy this to /etc/profile.d/
+This script adds the output of ldapcat to the existing environment.  Deploy this to /etc/profile.d/
 
 otherfiles.sh
 --------------
