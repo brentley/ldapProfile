@@ -59,6 +59,7 @@ dot file to the ldap server, and ldap-deleteattribute to
 remove your dot file from the ldap server.
 
 Note: Doublequote (") is the comment character for .vimrc
+
 Note2: Since bashProfile is never written to disk, this version mechanism is not necessary.
 
 Deleting
