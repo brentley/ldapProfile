@@ -9,10 +9,10 @@ fi
 USERNAME=$1
 BINDUSER="cn=Directory Manager"
 BINDPW=dir_man_password
-LDAPHOST=ldap.example.com
+LDAPHOST=ldap.example.org
 
 echo \
-"dn: uid=$USERNAME,ou=People,dc=example,dc=com
+"dn: uid=$USERNAME,ou=People,dc=example,dc=org
 changetype: modify
 add: objectclass
 objectclass: ldapProfile" \

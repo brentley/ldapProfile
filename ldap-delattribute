@@ -17,13 +17,13 @@ ldapmod () {
 
 USERNAME=$USER
 ATTRIBUTE=$1
-BINDUSER="uid=$USERNAME,ou=People,dc=example,dc=com"
-LDAPHOST=ldap.example.com
+BINDUSER="uid=$USERNAME,ou=People,dc=example,dc=org"
+LDAPHOST=ldap.example.org
 echo -n "Enter your LDAP Password: "
 read -s BINDPW
 echo
 echo \
-"dn: uid=$USERNAME,ou=People,dc=example,dc=com
+"dn: uid=$USERNAME,ou=People,dc=example,dc=org
 changetype: modify
 delete: $ATTRIBUTE" \
 \

@@ -3,7 +3,7 @@ require 'rubygems'
 require 'net/ldap'
 abort if ARGV.empty?
 
-ldap = Net::LDAP.new :host => 'ldap.example.com',
+ldap = Net::LDAP.new :host => 'ldap.example.org',
      :port => 389,
      :auth => {
            :method => :simple,
@@ -11,7 +11,7 @@ ldap = Net::LDAP.new :host => 'ldap.example.com',
            :password => ""
      }
 
-treebase = "ou=People, dc=example, dc=com"
+treebase = "ou=People, dc=example, dc=org"
 filter   = Net::LDAP::Filter.eq("uid", ENV['USER'])
 response = ldap.search(:base => treebase, :filter => filter).first
 
