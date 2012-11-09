@@ -60,7 +60,7 @@ remove your dot file from the ldap server.
 
 Note: Doublequote (") is the comment character for .vimrc
 
-Note2: Since bashProfile is never written to disk, this version mechanism is not necessary.
+Note2: Since bashProfile is never written to disk, this version mechanism is not necessary for the bashProfile attribute.  Other dot files written to disk *do* need versions, though.
 
 Deleting
 --------
