@@ -105,4 +105,3 @@ This user self-servicable script removes the contents of the specified attribute
 aci.ldif
 --------
 This aci allows for user self service
-
