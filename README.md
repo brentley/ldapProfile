@@ -50,8 +50,6 @@ the ldap version has to be commented with:
 
 Where X is the latest version of your file.
 
-Note: doublequote (") is the comment character for .vimrc
-
 By doing this you are ensured you have the latest copy of 
 your dot file, and don't overwrite local copies that
 may have been customized.
@@ -59,6 +57,9 @@ may have been customized.
 Use the ldap-uploadattribute command to push your 
 dot file to the ldap server, and ldap-deleteattribute to 
 remove your dot file from the ldap server.
+
+Note: Doublequote (") is the comment character for .vimrc
+Note2: Since bashProfile is never written to disk, this version mechanism is not necessary.
 
 Deleting
 --------
