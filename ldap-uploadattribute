@@ -16,7 +16,6 @@ usage () {
 ldapmod () {
 USERNAME=$USER
 ATTRIBUTE=$1
-INPUTFILE="`openssl enc -in $2 -base64 |tr -d "\n"`"
 BINDUSER="uid=$USERNAME,ou=People,dc=example,dc=org"
 LDAPHOST=ldap.example.org
 echo -n "Enter your LDAP Password: "
@@ -31,6 +30,8 @@ $ATTRIBUTE:: $INPUTFILE" \
 \
 | ldapmodify -c -x -ZZ -h $LDAPHOST -D "$BINDUSER" -w "$BINDPW" &>/dev/null && echo "Success! The $ATTRIBUTE was added to the $USERNAME account." || echo "FAIL! The $ATTRIBUTE was not added to the $USERNAME account." 
 }
+
+INPUTFILE="$(gzip -c $2 | openssl enc -base64 | tr -d '\n')"
 
 if [ "$#" -ne 2 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
   usage
@@ -52,10 +53,10 @@ if [ ! -f "$2" ] || [ ! -s "$2" ]; then
   usage
 fi
 
-if [ $(stat -c %s "$2") -gt 3060 ]; then
-  echo "============================================"
-  echo "3060 bytes is the maximum file size allowed."
-  echo "============================================"
+if [ "$(echo $INPUTFILE | wc -c)" -gt 4096 ]; then
+  echo "=============================================================="
+  echo "Inputfile is too large. Must compress to less than 4096 bytes."
+  echo "=============================================================="
   exit 2
 fi
 

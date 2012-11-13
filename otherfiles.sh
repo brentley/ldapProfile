@@ -10,7 +10,7 @@ LDAPCAT=/usr/local/bin/ldapcat
 # $1 is attribute name $2 is filename
 checkfiles() {
 
-LDAPCONTENT="$($LDAPCAT $1)"
+LDAPCONTENT="$($LDAPCAT $1 | zcat -f)"
 
 # if the attribute isn't populated in ldap, don't bother finishing the function
 if [ $? -gt 0 ]; then return; fi
@@ -67,8 +67,9 @@ Use the ldap-uploadattribute command to push your
 dot file to the ldap server, and ldap-deleteattribute to 
 remove your dot file from the ldap server.
 
-There is currently a 3060 byte limitation per dot file.
-
+There is currently a 4096 byte limitation per 
+dot file *AFTER COMPRESSION*.  In my testing, this 
+allows for ~8192k uncompressed file.
 EoF
 
 fi
