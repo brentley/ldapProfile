@@ -53,9 +53,9 @@ if [ ! -f "$2" ] || [ ! -s "$2" ]; then
   usage
 fi
 
-if [ "$(echo $INPUTFILE | wc -c)" -gt 4096 ]; then
+if [ "$(echo $INPUTFILE | wc -c)" -gt 4076 ]; then
   echo "=============================================================="
-  echo "Inputfile is too large. Must compress to less than 4096 bytes."
+  echo "Inputfile is too large. Must compress to less than 4076 bytes."
   echo "=============================================================="
   exit 2
 fi

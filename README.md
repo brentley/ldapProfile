@@ -68,7 +68,7 @@ To remove the contents of an attribute from your LDAP profile, use the "ldap-del
 
 Size restriction
 ----------------
-There is currently a 4096 byte limitation per dot file *AFTER COMPRESSION*.  In my testing, this allows for ~8192k uncompressed file.  The ldap-uploadattribute script will test this prior to upload, and will output an error if the input data is too large.
+There is currently a 4076 byte limitation per dot file *AFTER COMPRESSION*.  In my testing, this allows for ~8192k uncompressed file.  The ldap-uploadattribute script will test this prior to upload, and will output an error if the input data is too large.
 
 Additional Dot Files
 --------------------

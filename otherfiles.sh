@@ -67,9 +67,9 @@ Use the ldap-uploadattribute command to push your
 dot file to the ldap server, and ldap-deleteattribute to 
 remove your dot file from the ldap server.
 
-There is currently a 4096 byte limitation per 
+There is currently a 4076 byte limitation per 
 dot file *AFTER COMPRESSION*.  In my testing, this 
-allows for ~8192k uncompressed file.
+allows for ~8k uncompressed file.
 EoF
 
 fi
