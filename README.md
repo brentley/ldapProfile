@@ -68,7 +68,7 @@ To remove the contents of an attribute from your LDAP profile, use the "ldap-del
 
 Size restriction
 ----------------
-The maximum file size of a dot file in ldap is 3060 bytes.  After encoding, this will be stored as a maximum 4096 byte ldap entry.  Because of this restriction, I've created 3 bash profile attributes that are sourced in order. You can break up your large profile into these 3 attributes to work around the 3060 byte limit.
+There is currently a 4096 byte limitation per dot file *AFTER COMPRESSION*.  In my testing, this allows for ~8192k uncompressed file.  The ldap-uploadattribute script will test this prior to upload, and will output an error if the input data is too large.
 
 Additional Dot Files
 --------------------
