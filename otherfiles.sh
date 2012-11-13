@@ -13,7 +13,7 @@ checkfiles() {
 LDAPCONTENT="$($LDAPCAT $1 | zcat -f)"
 
 # if the attribute isn't populated in ldap, don't bother finishing the function
-if [ $? -gt 0 ]; then return; fi
+if [ ! "$(echo $LDAPCONTENT |wc -c)" -gt 1 ]; then return; fi
 
 # if the file dosn't exist OR does, but is zero bytes
 if [ ! -f $HOME/$2 ] || ([ -f $HOME/$2 ] && [ ! -s $HOME/$2 ])
@@ -30,7 +30,7 @@ ONDISK=$(cat $HOME/$2 2>/dev/null | awk -F= '/LDAP_STORED_VERSION=/ { print $2 }
 # if we have a file version AND an ldap version AND file < ldap
 if [ -n "$ONDISK" ] && [ -n "$LDAP" ] && [ "$ONDISK" -lt "$LDAP" ]
 then
-    echo "$LDAPCONTENT" $1 > $HOME/$2 2>/dev/null
+    echo "$LDAPCONTENT" > $HOME/$2 2>/dev/null
 fi 2>/dev/null
 
 }
