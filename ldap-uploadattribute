@@ -17,7 +17,7 @@ ldapmod () {
 USERNAME=$USER
 ATTRIBUTE=$1
 BINDUSER="uid=$USERNAME,ou=People,dc=example,dc=org"
-LDAPHOST=ldap.example.org
+LDAPHOST='ldap.example.org'
 echo -n "Enter your LDAP Password: "
 read -s BINDPW
 echo
@@ -28,14 +28,14 @@ changetype: modify
 replace: $ATTRIBUTE
 $ATTRIBUTE:: $INPUTFILE" \
 \
-| ldapmodify -c -x -ZZ -h $LDAPHOST -D "$BINDUSER" -w "$BINDPW" &>/dev/null && echo "Success! The $ATTRIBUTE was added to the $USERNAME account." || echo "FAIL! The $ATTRIBUTE was not added to the $USERNAME account." 
+| ldapmodify -c -x -ZZ -h $LDAPHOST -D "$BINDUSER" -w "$BINDPW" &>/dev/null && echo "Success! $INPUTSIZE bytes was written to your $ATTRIBUTE attribute." || echo "FAIL! The $ATTRIBUTE was not added to the $USERNAME account." 
 }
 
-INPUTFILE="$(gzip -c $2 | openssl enc -base64 | tr -d '\n')"
 
 if [ "$#" -ne 2 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
   usage
 fi
+
 
 if [ "$1" != "bashProfile" ] && [ "$1" != "bashProfile2" ] && [ "$1" != "bashProfile3" ] && [ "$1" != "screenrc" ] && [ "$1" != "vimrc" ] && [ "$1" != "tmuxrc" ] && [ "$1" != "bashLogout" ]; then
   echo "=============================="
@@ -53,10 +53,13 @@ if [ ! -f "$2" ] || [ ! -s "$2" ]; then
   usage
 fi
 
-if [ "$(echo $INPUTFILE | wc -c)" -gt 4076 ]; then
-  echo "=============================================================="
-  echo "Inputfile is too large. Must compress to less than 4076 bytes."
-  echo "=============================================================="
+INPUTFILE="$(gzip -c $2 | openssl enc -base64 | tr -d '\n')"
+INPUTSIZE="$(echo $INPUTFILE |wc -c)"
+
+if [ "$INPUTSIZE" -gt 4076 ]; then
+  echo "====================================================================="
+  echo "Inputfile is $INPUTSIZE bytes. Must compress to less than 4076 bytes."
+  echo "====================================================================="
   exit 2
 fi
 
